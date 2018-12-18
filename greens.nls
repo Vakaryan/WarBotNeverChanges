@@ -241,7 +241,7 @@ end
 
 ;; procedure pour initialiser les bases verts
 to initGreenBase
-  ; cré des explorers, des harvesters et des rocket-launchers
+  ; créer des explorers, des harvesters et des rocket-launchers
   new-Explorer 2 self
   new-Harvester 5 self
   new-RocketLauncher 2 self
