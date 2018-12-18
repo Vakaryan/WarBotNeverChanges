@@ -1,0 +1,42 @@
+v2.1
+* Modification de la procédure new-random-burgers
+  - correction de bug quand les 2 bases rouges sont détruites
+* Modification de launch-faf
+  - correction de bug quand la cible t n’existe plus
+* Modification de go-faf
+  - correction de bug quand la cible target n’existe plus
+* Modification des conditions de victoire dans le go
+  - Ne déclenche la victoire d’une équipe que quand les bases des 2 autres équipes sont détruites
+* Correction du code de l’équipe verte pour éviter des bugs quand les 2 bases ont été détruites :
+  - green-team-go-back-to-base : vérification que b existe
+  - goGreenHarvester : vérification que b existe
+* Correction du code de l’équipe rouge pour éviter des bugs quand les 2 bases ont été détruites :
+  - red-team-go-back-to-base : vérification que b existe
+* Correction du code de l’équipe bleue pour éviter des bugs quand les 2 bases ont été détruites :
+  - blue-team-go-back-to-base : vérification que b existe
+
+v2.0
+* Modification de la map
+  - 121 x 51
+  - topologie toroïdale
+* Ajout d'une troisième équipe
+  - 2 bases par équipe
+  - réparties de manière régulière sur le tore
+* Modification de free-ahead?
+  - on regarde au minimum à une distance de 1 pour savoir s'il y a un
+    obstacle devant
+  - on regarde dans un cône de 135° au lieu de 90°
+* modification de forward-move et random-move
+* possibilité de collision
+* un robot qui meurt libère 10 burgers, une base qui meurt libère 100 burgers
+* Diminution du métabolisme (quantité d'énergie perdue chaque tour
+  pour rester en vie)
+  - 0.05 au lieu de 0.1
+* Modification de la quantité d'énergie initiale des bases
+  - 50.000 au lieu de 42.000
+* Modification de l'interface
+  - ajout de la possibilité de visualiser la mémoire des robots
+* Modification de la procédure give-food pour donner de la nourriture aux Explorers
+* Ajout d'un missile de type "faf" (fire and forget)
+
+* Modification du code de l'équipe verte
