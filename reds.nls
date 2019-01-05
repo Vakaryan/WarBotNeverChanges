@@ -182,11 +182,20 @@ to goRedRocketLauncher
   [
     ;; sinon sélectionne une cible
     red-team-select-target
-    ifelse (red-team-no-target?)
-    ;; si pas de cible, cherche à manger
-    [ red-team-go-and-eat ]
-    ;; sinon tire
-    [ red-team-shoot ]
+    ifelse (not red-team-no-target?)
+	[
+    ;; si cible, on tire
+    red-team-shoot 
+	]
+	[
+		;; sinon, on cherche à se mettre en standby à une distance x = 20 de la base
+	  let b min-one-of my-bases [ distance myself ]
+      if (b != nobody) [
+        ;; si le robot est à moins de x de la base
+        if (distance b < 20)
+          [ random-move ]
+      ]
+	]
   ]
   
   ;; crée un nouveau missile si plus de 3000 unités d'énergie
@@ -201,12 +210,13 @@ to goRedHarvester
     ;; rentre à la base si certaines conditions sont vérifiées
     red-team-go-back-to-base
     if (energy > 500) and (carrying-food? > 500) [ 
-      ;; détermine la distance de la base la plus proche
+      ;; détermine la distance de la base la plus proche et de la plus éloignée
       ;; BUG CORRIGE
-      let b min-one-of my-bases [ distance myself ]
-      if (b != nobody) [
-        ;; si le robot est à moins de 10 de la base
-        if (distance b < 10)
+      let b1 min-one-of my-bases [ distance myself ]
+	    let b2 max-one-of my-bases [ distance myself ]
+      if ((b1 != nobody) and (b2 != nobody)) [
+        ;; si le robot est à moins de 10 de la base la plus proche, et moins de 30 de la plus proche
+        if ((distance b1 < 10) and (distance b2 < 35))
           [ plant-seeds color max-seeds ]
       ]
     ]
@@ -219,7 +229,7 @@ end
 
 to goRedBase
   if (nb-missiles < 10) and (energy > 1000) [ new-missile 50 ]
-  if (energy > 12000) [ ifelse (random 5 = 0) [ new-Explorer 1 self ][ifelse (random 2 = 0) [ new-Harvester 1 self ][ new-RocketLauncher 1 self ]]]
+  if (energy > 10000) [ ifelse (random 2 = 0) [ new-Explorer 2 self ] [ifelse (random 3 = 0) [ new-RocketLauncher 1 self ] [ new-Harvester 2 self ]]]
   let t one-of perceive-specific-robots2 ennemy1 ennemy2 rocketlaunchers
     if (t != nobody) [
       if (random 10 = 0) [launch-rocket towards t]
@@ -242,6 +252,6 @@ end
 to initRedBase
   ; cré des explorers, des harvesters et des rocket-launchers
   new-Explorer 2 self
-  new-Harvester 5 self
-  new-RocketLauncher 2 self
+  new-Harvester 6 self
+  new-RocketLauncher 3 self
 end
