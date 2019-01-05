@@ -1,3 +1,17 @@
+v3.0
+* augmentation de la mémoire des bases
+  - 6 emplacements mémoire supplémentaires (avec possibilité de gestion de
+    listes)
+* pourrissement progressif des burgers (burger-decay)
+* création des murs symétriques pour toutes les équipes
+* création de nouveaux murs par la base (new-wall)
+* identification des robots morts
+* augmentation des coûts de fabrication et des dégâts pour les missiles de
+  base
+* modification des règles de collision
+  - un robot est détruit en cas de collision avec une base
+* initialisation des valeurs des paramètres dans "parameters.nls"
+
 v2.1
 * Modification de la procédure new-random-burgers
   - correction de bug quand les 2 bases rouges sont détruites
@@ -6,13 +20,17 @@ v2.1
 * Modification de go-faf
   - correction de bug quand la cible target n’existe plus
 * Modification des conditions de victoire dans le go
-  - Ne déclenche la victoire d’une équipe que quand les bases des 2 autres équipes sont détruites
-* Correction du code de l’équipe verte pour éviter des bugs quand les 2 bases ont été détruites :
+  - Ne déclenche la victoire d’une équipe que quand les bases des 2 autres
+    équipes sont détruites
+* Correction du code de l’équipe verte pour éviter des bugs quand les 2 bases
+  ont été détruites :
   - green-team-go-back-to-base : vérification que b existe
   - goGreenHarvester : vérification que b existe
-* Correction du code de l’équipe rouge pour éviter des bugs quand les 2 bases ont été détruites :
+* Correction du code de l’équipe rouge pour éviter des bugs quand les 2 bases
+  ont été détruites :
   - red-team-go-back-to-base : vérification que b existe
-* Correction du code de l’équipe bleue pour éviter des bugs quand les 2 bases ont été détruites :
+* Correction du code de l’équipe bleue pour éviter des bugs quand les 2 bases
+  ont été détruites :
   - blue-team-go-back-to-base : vérification que b existe
 
 v2.0
@@ -36,7 +54,7 @@ v2.0
   - 50.000 au lieu de 42.000
 * Modification de l'interface
   - ajout de la possibilité de visualiser la mémoire des robots
-* Modification de la procédure give-food pour donner de la nourriture aux Explorers
+* Modification de la procédure give-food pour donner de la nourriture aux
+  Explorers
 * Ajout d'un missile de type "faf" (fire and forget)
-
 * Modification du code de l'équipe verte

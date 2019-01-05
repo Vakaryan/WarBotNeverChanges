@@ -133,7 +133,6 @@ to goBlueHarvester
 end
 
 to goBlueBase
-  set label energy
   if (energy > 12000) [ new-RocketLauncher 1 self ]
   let t one-of perceive-specific-robots2 ennemy1 ennemy2 rocketlaunchers
   if (t != nobody) [

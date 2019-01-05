@@ -13,3 +13,11 @@ Stratégie 1 - Shingeki no kiyojin
 	- Harvesters : 2 états possible -> en attente (immobile, proche des tours de guet?, attendent la découverte d'un burger)
 	                                -> harvest (récolte des burgers découverts)
 									
+
+									
+									
+
+									
+									
+									
+Stratégie 2 - 

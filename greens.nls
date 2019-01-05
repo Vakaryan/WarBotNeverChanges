@@ -218,7 +218,6 @@ to goGreenHarvester
 end
 
 to goGreenBase
-  set label energy
   if (nb-missiles < 10) and (energy > 1000) [ new-missile 50 ]
   if (energy > 12000) [ ifelse (random 5 = 0) [ new-Explorer 1 self ][ifelse (random 2 = 0) [ new-Harvester 1 self ][ new-RocketLauncher 1 self ]]]
   let t one-of perceive-specific-robots2 ennemy1 ennemy2 rocketlaunchers
@@ -241,7 +240,7 @@ end
 
 ;; procedure pour initialiser les bases verts
 to initGreenBase
-  ; créer des explorers, des harvesters et des rocket-launchers
+  ; cré des explorers, des harvesters et des rocket-launchers
   new-Explorer 2 self
   new-Harvester 5 self
   new-RocketLauncher 2 self

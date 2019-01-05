@@ -445,7 +445,6 @@ to new-wall [ n a ]
         set color [color] of a
         set size 1
         ; on decale le nouvel agent
-        set heading random 360
         fd 1
         ; initialisation de l'energie, du rayon de perception, de la vitesse
         set energy wall-nrj

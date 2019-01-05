@@ -16,7 +16,7 @@ end
 ;; rentre à la base si le robot transporte plus de 1000 unités de nourriture ou si son énergie est inférieure à 500 ou si c'est un rocket-launcher qui n'a plus de missiles
 ;;
 to red-team-go-back-to-base
-;; détermine la base la plus proche
+  ;; détermine la base la plus proche
   let b min-one-of my-bases [ distance myself ]
   ;; BUG CORRIGE
   if (b != nobody) [
@@ -75,7 +75,6 @@ to red-team-harvesters-go-and-eat
   ]
 end
 
-
 ;;
 ;; la mémoire mem5 est à
 ;; - 0 si le robot n'a pas de cible sélectionnée
@@ -123,7 +122,7 @@ end
 ;; essaye de sélectionner une cible à viser
 ;;
 to red-team-select-target
-;; si le robot n'a pas une base adverse comme cible
+  ;; si le robot n'a pas une base adverse comme cible
   if (red-team-no-target?)
   [
     ;; il essaye de percevoir un robot ennemi (le plus proche de lui)
@@ -139,7 +138,6 @@ to red-team-select-target
   ]
 end
 
-
 to red-team-shoot 
   if (not red-team-no-target?)
   [
@@ -147,8 +145,8 @@ to red-team-shoot
     [ launch-rocket towardsxy mem0 mem1 set mem5 0 ]
     [ launch-faf mem0 set mem5 0 ]
   ]
+  
 end
-
 
 to red-team-drive-harvesters
   let food one-of perceive-food
@@ -156,7 +154,6 @@ to red-team-drive-harvesters
     red-team-call-harvester [xcor] of food [ycor] of food 
   ]
 end
-
 
 to goRedExplorer
 ;  ifelse (carrying-food? > 1000) or (energy < 500) or ((Breed = RocketLaunchers) and (nb-missiles = 0))
@@ -166,7 +163,7 @@ to goRedExplorer
   
   red-team-drive-harvesters
 
-  ifelse (not gred-team-no-target?) [
+  ifelse (not red-team-no-target?) [
     red-team-call-rocket-launcher-xy mem0 mem1 mem2
     red-team-call-explorer mem0 mem1 mem2
   ]
@@ -175,9 +172,8 @@ to goRedExplorer
   ]
 end
 
-
 to goRedRocketLauncher
-  ;  ifelse (carrying-food? > 1000) or (energy < 500) or ((Breed = RocketLaunchers) and (nb-missiles = 0))
+;  ifelse (carrying-food? > 1000) or (energy < 500) or ((Breed = RocketLaunchers) and (nb-missiles = 0))
   ifelse (energy < 500) or (nb-missiles = 0)
   [
     ;; rentre à la base si certaines conditions sont vérifiées
@@ -192,6 +188,7 @@ to goRedRocketLauncher
     ;; sinon tire
     [ red-team-shoot ]
   ]
+  
   ;; crée un nouveau missile si plus de 3000 unités d'énergie
   if ((energy > 3000) and (nb-missiles < 5)) [ new-missile 1 ]
 end
@@ -220,10 +217,7 @@ to goRedHarvester
   ]
 end
 
-
-
 to goRedBase
-set label energy
   if (nb-missiles < 10) and (energy > 1000) [ new-missile 50 ]
   if (energy > 12000) [ ifelse (random 5 = 0) [ new-Explorer 1 self ][ifelse (random 2 = 0) [ new-Harvester 1 self ][ new-RocketLauncher 1 self ]]]
   let t one-of perceive-specific-robots2 ennemy1 ennemy2 rocketlaunchers
@@ -240,13 +234,13 @@ end
 to initRedRocketLauncher
 end
 
-;; procedure pour initialiser les rocket-launchers rouges
+;; procedure pour initialiser les harvesters rouges
 to initRedHarvester
 end
 
 ;; procedure pour initialiser les bases rouges
 to initRedBase
-  ; créer des explorers, des harvesters et des rocket-launchers
+  ; cré des explorers, des harvesters et des rocket-launchers
   new-Explorer 2 self
   new-Harvester 5 self
   new-RocketLauncher 2 self
