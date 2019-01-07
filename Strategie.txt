@@ -1,0 +1,19 @@
+﻿Stratégie - Warbot Never Changes (aka Red Army no Kyojin aka Attack on Reapers)
+
+	- Principe : construire un "mur" de défense autour de la base, en envoyant une flopée d'explorers/harvesters en continue
+	- Exécution : faire des "tours de guets" composées de plusieurs rocketlaunchers à des points stratégiques autour de la base. 
+	- Rocketlaunchers : en nombre limité, créé un mur autour des bases et tirent sur tout ce qui passe à portée.
+	- Explorers : en nombre important, repèrent toutes les zones avec de la nourriture (y compris dans les zones ennemies) et les indiquent aux Harvesters 
+	- Harvesters : en nombre important, récoltent tout ce qui est repéré sur la carte, et les replantent dans un rayon restraint au niveau des bases, centré dans l'espace entre les deux bases.
+
+
+Il s'agit d'une stratégie centrée essentiellement sur la défense et la captation des ressources. 
+L'idée est de récolter au plus vite dès que disponible l'intégralité (ou presque) des ressources de la map et de les mettres en sécurité au niveau des bases.
+Il s'agit d'une stratégie à long terme qui ne vise pas la victoire par KO, mais plutôt la victoire au décompte de l'énergie finale.					
+
+									
+									
+
+									
+									
+								
